@@ -1,0 +1,11 @@
+openai
+unsloth
+torch
+datasets
+transformers
+trl
+peft 
+accelerate 
+bitsandbytes
+langchain
+langchain_community

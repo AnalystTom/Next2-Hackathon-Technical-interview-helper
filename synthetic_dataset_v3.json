@@ -1,0 +1,417 @@
+[
+    {
+        "Instruction": "Write a function that takes a list of integers and returns the first pair of integers that add up to a given target sum.",
+        "Input": "def find_pair(nums, target):\n    for i in range(len(nums)):\n        for j in range(i+1, len(nums)):\n            if nums[i] + nums[j] == target:\n                return [nums[i], nums[j]]\n    return []",
+        "Output": "def find_pair(nums, target):\n    num_set = set()\n    for num in nums:\n        if target - num in num_set:\n            return [target - num, num]\n    return []"
+    },
+    {
+        "Instruction": "Implement a function that takes a string and returns the first non-repeating character in the string. If no such character exists, return None.",
+        "Input": "def first_non_repeating_char(s):\n    char_count = {}\n    for char in s:\n        if char in char_count:\n            char_count[char] += 1\n        else:\n            char_count[char] = 1\n    for char in s:\n        if char_count[char] == 1:\n            return char\n    return None",
+        "Output": "def first_non_repeating_char(s):\n    char_count = {}\n    for char in s:\n        char_count[char] = char_count.get(char, 0) + 1\n    for char in s:\n        if char_count[char] == 1:\n            return char\n    return None"
+    },
+    {
+        "Instruction": "Write a function that takes a list of strings and returns the longest common prefix among all strings in the list.",
+        "Input": "def longest_common_prefix(strs):\n    prefix = ''\n    for chars in zip(*strs):\n        if len(set(chars)) == 1:\n            prefix += chars[0]\n        else:\n            break\n    return prefix",
+        "Output": "def longest_common_prefix(strs):\n    prefix = ''\n    for chars in zip(*strs):\n        if len(set(chars)) == 1:\n            prefix += chars[0]\n        else:\n            break\n    return prefix"
+    },
+    {
+        "Instruction": "Implement a function that takes a list of integers and returns the sum of all numbers that appear more than once in the list.",
+        "Input": "def sum_duplicates(nums):\n    num_count = {}\n    for num in nums:\n        if num in num_count:\n            num_count[num] += 1\n        else:\n            num_count[num] = 1\n    return sum(num for num, count in num_count.items() if count > 1)",
+        "Output": "def sum_duplicates(nums):\n    num_count = {}\n    for num in nums:\n        num_count[num] = num_count.get(num, 0) + 1\n    return sum(num for num, count in num_count.items() if count > 1)"
+    },
+    {
+        "Instruction": "Write a function that takes a string and returns the string with all vowels removed.",
+        "Input": "def remove_vowels(s):\n    vowels = 'aeiouAEIOU'\n    return ''.join([char for char in s if char not in vowels])",
+        "Output": "def remove_vowels(s):\n    vowels = set('aeiouAEIOU')\n    return ''.join([char for char in s if char not in vowels])"
+    },
+    {
+        "Instruction": "Implement a function that takes a list of integers and returns the maximum sum of a contiguous subarray within the list.",
+        "Input": "def max_subarray_sum(nums):\n    max_sum = float('-inf')\n    current_sum = 0\n    for num in nums:\n        current_sum = max(num, current_sum + num)\n        max_sum = max(max_sum, current_sum)\n    return max_sum",
+        "Output": "def max_subarray_sum(nums):\n    max_sum = float('-inf')\n    current_sum = 0\n    for num in nums:\n        current_sum = max(num, current_sum + num)\n        max_sum = max(max_sum, current_sum)\n    return max_sum"
+    },
+    {
+        "Instruction": "Write a function that takes a list of integers and returns the first pair of integers that add up to a given target sum.",
+        "Input": "def find_pair(nums, target):\n    num_set = set()\n    for num in nums:\n        if target - num in num_set:\n            return [target - num, num]\n    return []",
+        "Output": "def find_pair(nums, target):\n    num_set = set()\n    for num in nums:\n        if target - num in num_set:\n            return [target - num, num]\n    return []"
+    },
+    {
+        "Instruction": "Implement a function that takes a string and returns the string with all vowels removed.",
+        "Input": "def remove_vowels(s):\n    vowels = 'aeiouAEIOU'\n    return ''.join([char for char in s if char not in vowels])",
+        "Output": "def remove_vowels(s):\n    vowels = set('aeiouAEIOU')\n    return ''.join([char for char in s if char not in vowels])"
+    },
+    {
+        "Instruction": "Write a function that takes a list of integers and returns the longest contiguous subarray with a sum greater than 0.",
+        "Input": "def longest_subarray(nums):\n    max_length = 0\n    current_sum = 0\n    start = 0\n    for end in range(len(nums)):\n        current_sum += nums[end]\n        while current_sum > 0:\n            max_length = max(max_length, end - start + 1)\n            current_sum -= nums[start]\n            start += 1\n    return max_length",
+        "Output": "def longest_subarray(nums):\n    max_length = 0\n    current_sum = 0\n    start = 0\n    for end in range(len(nums)):\n        current_sum += nums[end]\n        while current_sum > 0:\n            max_length = max(max_length, end - start + 1)\n            current_sum -= nums[start]\n            start += 1\n    return max_length"
+    },
+    {
+        "Instruction": "Implement a function that takes a list of integers and returns the sum of all numbers that appear more than once in the list.",
+        "Input": "def sum_duplicates(nums):\n    num_count = {}\n    for num in nums:\n        if num in num_count:\n            num_count[num] += 1\n        else:\n            num_count[num] = 1\n    return sum(num for num, count in num_count.items() if count > 1)",
+        "Output": "def sum_duplicates(nums):\n    num_count = {}\n    for num in nums:\n        num_count[num] = num_count.get(num, 0) + 1\n    return sum(num for num, count in num_count.items() if count > 1)"
+    },
+    {
+        "Instruction": "Write a function that takes a string and returns the string with all vowels removed.",
+        "Input": "def remove_vowels(s):\n    vowels = 'aeiouAEIOU'\n    return ''.join([char for char in s if char not in vowels])",
+        "Output": "def remove_vowels(s):\n    vowels = set('aeiouAEIOU')\n    return ''.join([char for char in s if char not in vowels])"
+    },
+    {
+        "Instruction": "Write a function that takes a list of integers and returns the sum of all even numbers.",
+        "Input": "def sum_even(nums): \n    sum = 0\n    for num in nums: \n        if num % 2 == 0: \n            sum += num\n    return sum\n",
+        "Output": "def sum_even(nums): \n    return sum(num for num in nums if num % 2 == 0)\n"
+    },
+    {
+        "Instruction": "Implement a stack using a list in Python.",
+        "Input": "class Stack: \n    def __init__(self): \n        self.stack = []\n    def push(self, item): \n        self.stack.append(item)\n    def pop(self): \n        if self.stack: \n            return self.stack.pop()\n        else: \n            return None\n",
+        "Output": "class Stack: \n    def __init__(self): \n        self.stack = []\n    def push(self, item): \n        self.stack.append(item)\n    def pop(self): \n        return self.stack.pop() if self.stack else None\n"
+    },
+    {
+        "Instruction": "Write a function to find the maximum value in a 2D list.",
+        "Input": "def max_value(matrix): \n    max_val = matrix[0][0]\n    for row in matrix: \n        for num in row: \n            if num > max_val: \n                max_val = num\n    return max_val\n",
+        "Output": "def max_value(matrix): \n    return max(max(row) for row in matrix)\n"
+    },
+    {
+        "Instruction": "Implement a queue using a list in Python.",
+        "Input": "class Queue: \n    def __init__(self): \n        self.queue = []\n    def enqueue(self, item): \n        self.queue.append(item)\n    def dequeue(self): \n        if self.queue: \n            return self.queue.pop(0)\n        else: \n            return None\n",
+        "Output": "class Queue: \n    def __init__(self): \n        self.queue = []\n    def enqueue(self, item): \n        self.queue.append(item)\n    def dequeue(self): \n        return self.queue.pop(0) if self.queue else None\n"
+    },
+    {
+        "Instruction": "Write a function to check if a string is a palindrome.",
+        "Input": "def is_palindrome(s): \n    rev_s = ''\n    for char in s: \n        rev_s = char + rev_s\n    return s == rev_s\n",
+        "Output": "def is_palindrome(s): \n    return s == s[::-1]\n"
+    },
+    {
+        "Instruction": "Implement a dictionary using a list of tuples in Python.",
+        "Input": "class Dictionary: \n    def __init__(self): \n        self.keys = []\n        self.values = []\n    def put(self, key, value): \n        self.keys.append(key)\n        self.values.append(value)\n    def get(self, key): \n        if key in self.keys: \n            return self.values[self.keys.index(key)]\n        else: \n            return None\n",
+        "Output": "class Dictionary: \n    def __init__(self): \n        self.keys = []\n        self.values = []\n    def put(self, key, value): \n        self.keys.append(key)\n        self.values.append(value)\n    def get(self, key): \n        return self.values[self.keys.index(key)] if key in self.keys else None\n"
+    },
+    {
+        "Instruction": "Write a function to find the first duplicate in a list of integers.",
+        "Input": "def first_duplicate(nums): \n    seen = {}\n    for num in nums: \n        if num in seen: \n            return num\n        else: \n            seen[num] = True\n    return None\n",
+        "Output": "def first_duplicate(nums): \n    seen = set()\n    for num in nums: \n        if num in seen: \n            return num\n        else: \n            seen.add(num)\n    return None\n"
+    },
+    {
+        "Instruction": "Implement a set using a list in Python.",
+        "Input": "class Set: \n    def __init__(self): \n        self.set = []\n    def add(self, item): \n        self.set.append(item)\n    def remove(self, item): \n        if item in self.set: \n            self.set.remove(item)\n",
+        "Output": "class Set: \n    def __init__(self): \n        self.set = []\n    def add(self, item): \n        self.set.append(item)\n    def remove(self, item): \n        self.set.remove(item) if item in self.set else None\n"
+    },
+    {
+        "Instruction": "Write a function to find the maximum sum of a subarray in a list of integers.",
+        "Input": "def max_subarray_sum(nums): \n    max_sum = nums[0]\n    current_sum = nums[0]\n    for num in nums[1:]: \n        current_sum = max(num, current_sum + num)\n        max_sum = max(max_sum, current_sum)\n    return max_sum\n",
+        "Output": "def max_subarray_sum(nums): \n    return max(sum(nums[i:j+1]) for i in range(len(nums)) for j in range(i, len(nums)))\n"
+    },
+    {
+        "Instruction": "Implement a binary search algorithm in Python.",
+        "Input": "def binary_search(nums, target): \n    low = 0\n    high = len(nums) - 1\n    while low <= high: \n        mid = (low + high) // 2\n        if nums[mid] == target: \n            return mid\n        elif nums[mid] < target: \n            low = mid + 1\n        else: \n            high = mid - 1\n    return -1\n",
+        "Output": "def binary_search(nums, target): \n    low = 0\n    high = len(nums) - 1\n    while low <= high: \n        mid = (low + high) // 2\n        if nums[mid] == target: \n            return mid\n        elif nums[mid] < target: \n            low = mid + 1\n        else: \n            high = mid - 1\n    return -1\n"
+    },
+    {
+        "Instruction": "Write a function to check if a number is prime.",
+        "Input": "def is_prime(n): \n    if n <= 1: \n        return False\n    for i in range(2, int(n ** 0.5) + 1): \n        if n % i == 0: \n            return False\n    return True\n",
+        "Output": "def is_prime(n): \n    return n > 1 and all(n % i for i in range(2, int(n ** 0.5) + 1))\n"
+    },
+    {
+        "Instruction": "Write a function that takes a list of integers as input and returns the sum of all even numbers in the list.",
+        "Input": "def sum_even_numbers(lst):\n  sum = 0\n  for num in lst:\n    if num % 2 == 0:\n      sum += num\n  return sum\n",
+        "Output": "def sum_even_numbers(lst):\n  # Initialize sum to 0\n  total_sum = 0\n  # Iterate over each number in the list\n  for num in lst:\n    # Check if the number is even\n    if num % 2 == 0:\n      # If even, add it to the sum\n      total_sum += num\n  # Return the sum of even numbers\n  return total_sum"
+    },
+    {
+        "Instruction": "Write a function that takes a string as input and returns the string with all vowels removed.",
+        "Input": "def remove_vowels(s):\n  vowels = 'aeiou'\n  new_s = ''\n  for char in s:\n    if char not in vowels:\n      new_s += char\n  return new_s\n",
+        "Output": "def remove_vowels(s):\n  # Define the set of vowels\n  vowels = {'a', 'e', 'i', 'o', 'u'}\n  # Initialize an empty string to store the result\n  result = ''\n  # Iterate over each character in the input string\n  for char in s:\n    # Check if the character is not a vowel\n    if char not in vowels:\n      # If not a vowel, add it to the result\n      result += char\n  # Return the string with vowels removed\n  return result"
+    },
+    {
+        "Instruction": "Write a function that takes a list of strings as input and returns the string with the longest length.",
+        "Input": "def longest_string(lst):\n  longest = ''\n  for s in lst:\n    if len(s) > len(longest):\n      longest = s\n  return longest\n",
+        "Output": "def longest_string(lst):\n  # Initialize the longest string to an empty string\n  longest = ''\n  # Iterate over each string in the list\n  for s in lst:\n    # Check if the length of the current string is greater than the length of the longest string\n    if len(s) > len(longest):\n      # If it is, update the longest string\n      longest = s\n  # Return the longest string\n  return longest"
+    },
+    {
+        "Instruction": "Write a function that takes a list of numbers as input and returns the average of all numbers in the list.",
+        "Input": "def average_numbers(lst):\n  sum = 0\n  count = 0\n  for num in lst:\n    sum += num\n    count += 1\n  return sum / count\n",
+        "Output": "def average_numbers(lst):\n  # Initialize sum and count to 0\n  total_sum = 0\n  count = 0\n  # Iterate over each number in the list\n  for num in lst:\n    # Add the number to the sum and increment the count\n    total_sum += num\n    count += 1\n  # Return the average by dividing the sum by the count\n  return total_sum / count"
+    },
+    {
+        "Instruction": "Write a function that takes a dictionary as input and returns the sum of all values in the dictionary.",
+        "Input": "def sum_dict_values(d):\n  sum = 0\n  for k, v in d.items():\n    sum += v\n  return sum\n",
+        "Output": "def sum_dict_values(d):\n  # Initialize sum to 0\n  total_sum = 0\n  # Iterate over each key-value pair in the dictionary\n  for key, value in d.items():\n    # Add the value to the sum\n    total_sum += value\n  # Return the sum of all values\n  return total_sum"
+    },
+    {
+        "Instruction": "Write a function that takes a list of strings as input and returns the list with all strings converted to uppercase.",
+        "Input": "def to_uppercase(lst):\n  new_lst = []\n  for s in lst:\n    new_lst.append(s.upper())\n  return new_lst\n",
+        "Output": "def to_uppercase(lst):\n  # Initialize an empty list to store the result\n  result = []\n  # Iterate over each string in the input list\n  for s in lst:\n    # Convert the string to uppercase and add it to the result list\n    result.append(s.upper())\n  # Return the list with all strings in uppercase\n  return result"
+    },
+    {
+        "Instruction": "Write a function that takes a list of numbers as input and returns the list with all numbers greater than 10 removed.",
+        "Input": "def remove_greater_than_10(lst):\n  new_lst = []\n  for num in lst:\n    if num <= 10:\n      new_lst.append(num)\n  return new_lst\n",
+        "Output": "def remove_greater_than_10(lst):\n  # Initialize an empty list to store the result\n  result = []\n  # Iterate over each number in the input list\n  for num in lst:\n    # Check if the number is less than or equal to 10\n    if num <= 10:\n      # If it is, add it to the result list\n      result.append(num)\n  # Return the list with all numbers greater than 10 removed\n  return result"
+    },
+    {
+        "Instruction": "Write a function that takes a string as input and returns the string with all occurrences of a given substring replaced with a given replacement string.",
+        "Input": "def replace_substring(s, old, new):\n  new_s = ''\n  i = 0\n  while i < len(s):\n    if s[i:i+len(old)] == old:\n      new_s += new\n      i += len(old)\n    else:\n      new_s += s[i]\n      i += 1\n  return new_s\n",
+        "Output": "def replace_substring(s, old, new):\n  # Initialize an empty string to store the result\n  result = ''\n  # Initialize the index to 0\n  i = 0\n  # Iterate over each character in the input string\n  while i < len(s):\n    # Check if the substring from the current index to the current index plus the length of the old substring matches the old substring\n    if s[i:i+len(old)] == old:\n      # If it does, add the replacement string to the result\n      result += new\n      # Move the index forward by the length of the old substring\n      i += len(old)\n    else:\n      # If it does not, add the current character to the result and move the index forward by 1\n      result += s[i]\n      i += 1\n  # Return the string with all occurrences of the old substring replaced with the new substring\n  return result"
+    },
+    {
+        "Instruction": "Write a function that takes a list of numbers as input and returns the list with all numbers multiplied by a given factor.",
+        "Input": "def multiply_numbers(lst, factor):\n  new_lst = []\n  for num in lst:\n    new_lst.append(num * factor)\n  return new_lst\n",
+        "Output": "def multiply_numbers(lst, factor):\n  # Initialize an empty list to store the result\n  result = []\n  # Iterate over each number in the input list\n  for num in lst:\n    # Multiply the number by the factor and add it to the result list\n    result.append(num * factor)\n  # Return the list with all numbers multiplied by the factor\n  return result"
+    },
+    {
+        "Instruction": "Write a function that takes a dictionary as input and returns the dictionary with all keys and values swapped.",
+        "Input": "def swap_dict_keys_values(d):\n  new_d = {}\n  for k, v in d.items():\n    new_d[v] = k\n  return new_d\n",
+        "Output": "def swap_dict_keys_values(d):\n  # Initialize an empty dictionary to store the result\n  result = {}\n  # Iterate over each key-value pair in the input dictionary\n  for key, value in d.items():\n    # Swap the key and value and add the swapped pair to the result dictionary\n    result[value] = key\n  # Return the dictionary with all keys and values swapped\n  return result"
+    },
+    {
+        "Instruction": "Write a function to calculate the area of a rectangle given its length and width.",
+        "Input": "def rectangle_area(length, width):\n    # Calculate the area\n    area = length * width\n    return area\n    # Print the result\n    print('The area of the rectangle is: ', area)",
+        "Output": "def rectangle_area(length, width):\n    # Calculate the area\n    area = length * width\n    return area\nrectangle_area(5, 10)"
+    },
+    {
+        "Instruction": "Write a function to check if a number is prime or not.",
+        "Input": "def is_prime(n):\n    # Check if n is less than 2\n    if n < 2:\n        return False\n    # Check if n is divisible by any number up to its square root\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\nis_prime(25)",
+        "Output": "def is_prime(n):\n    # Check if n is less than 2\n    if n < 2:\n        return False\n    # Check if n is divisible by any number up to its square root\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True"
+    },
+    {
+        "Instruction": "Write a function to find the maximum value in a list of numbers.",
+        "Input": "def max_value(numbers):\n    # Initialize max_value as the first number in the list\n    max_value = numbers[0]\n    # Iterate through the list and update max_value if a larger number is found\n    for num in numbers:\n        if num > max_value:\n            max_value = num\n    return max_value\nmax_value([1, 2, 3, 4, 5])",
+        "Output": "def max_value(numbers):\n    # Initialize max_value as the first number in the list\n    max_value = numbers[0]\n    # Iterate through the list and update max_value if a larger number is found\n    for num in numbers:\n        if num > max_value:\n            max_value = num\n    return max_value"
+    },
+    {
+        "Instruction": "Write a function to reverse a string.",
+        "Input": "def reverse_string(s):\n    # Initialize an empty string to store the reversed string\n    reversed_s = ''\n    # Iterate through the input string and append each character to the reversed string\n    for char in s:\n        reversed_s = char + reversed_s\n    return reversed_s\nreverse_string('hello')",
+        "Output": "def reverse_string(s):\n    # Initialize an empty string to store the reversed string\n    reversed_s = ''\n    # Iterate through the input string and append each character to the reversed string\n    for char in s:\n        reversed_s = char + reversed_s\n    return reversed_s"
+    },
+    {
+        "Instruction": "Write a function to find the first duplicate in a list of numbers.",
+        "Input": "def first_duplicate(numbers):\n    # Initialize an empty set to store unique numbers\n    unique_nums = set()\n    # Iterate through the list and add each number to the set\n    for num in numbers:\n        if num in unique_nums:\n            return num\n        unique_nums.add(num)\n    return None\nfirst_duplicate([1, 2, 3, 4, 5, 2])",
+        "Output": "def first_duplicate(numbers):\n    # Initialize an empty set to store unique numbers\n    unique_nums = set()\n    # Iterate through the list and add each number to the set\n    for num in numbers:\n        if num in unique_nums:\n            return num\n        unique_nums.add(num)\n    return None"
+    },
+    {
+        "Instruction": "Write a function to calculate the factorial of a number.",
+        "Input": "def factorial(n):\n    # Initialize the result as 1\n    result = 1\n    # Iterate from 1 to n and multiply the result by each number\n    for i in range(1, n + 1):\n        result *= i\n    return result\nfactorial(5)",
+        "Output": "def factorial(n):\n    # Initialize the result as 1\n    result = 1\n    # Iterate from 1 to n and multiply the result by each number\n    for i in range(1, n + 1):\n        result *= i\n    return result"
+    },
+    {
+        "Instruction": "Write a function to check if a string is a palindrome or not.",
+        "Input": "def is_palindrome(s):\n    # Remove non-alphanumeric characters and convert to lowercase\n    s = ''.join(c for c in s if c.isalnum()).lower()\n    # Compare the string with its reverse\n    return s == s[::-1]\nis_palindrome('A man, a plan, a canal: Panama')",
+        "Output": "def is_palindrome(s):\n    # Remove non-alphanumeric characters and convert to lowercase\n    s = ''.join(c for c in s if c.isalnum()).lower()\n    # Compare the string with its reverse\n    return s == s[::-1]"
+    },
+    {
+        "Instruction": "Write a function to find the second largest number in a list of numbers.",
+        "Input": "def second_largest(numbers):\n    # Remove duplicates and sort the list in descending order\n    unique_nums = sorted(set(numbers), reverse=True)\n    # Return the second largest number if it exists, otherwise return None\n    return unique_nums[1] if len(unique_nums) > 1 else None\nsecond_largest([1, 2, 3, 4, 5])",
+        "Output": "def second_largest(numbers):\n    # Remove duplicates and sort the list in descending order\n    unique_nums = sorted(set(numbers), reverse=True)\n    # Return the second largest number if it exists, otherwise return None\n    return unique_nums[1] if len(unique_nums) > 1 else None"
+    },
+    {
+        "Instruction": "Write a function to calculate the sum of all elements in a nested list.",
+        "Input": "def sum_nested_list(nested_list):\n    # Initialize the sum as 0\n    total = 0\n    # Iterate through the list and add each element to the sum\n    for element in nested_list:\n        if isinstance(element, list):\n            total += sum_nested_list(element)\n        else:\n            total += element\n    return total\nsum_nested_list([1, [2, 3], 4, [5, [6, 7]]])",
+        "Output": "def sum_nested_list(nested_list):\n    # Initialize the sum as 0\n    total = 0\n    # Iterate through the list and add each element to the sum\n    for element in nested_list:\n        if isinstance(element, list):\n            total += sum_nested_list(element)\n        else:\n            total += element\n    return total"
+    },
+    {
+        "Instruction": "_WRITE A FUNCTION TO FIND THE LARGEST PALINDROME SUBSTRING IN A GIVEN STRING_",
+        "Input": "def largest_palindrome(s):\n    # Initialize the largest palindrome as an empty string\n    largest_pal = ''\n    # Iterate through the string and check for palindromes of different lengths\n    for length in range(len(s), 0, -1):\n        for i in range(len(s) - length + 1):\n            substring = s[i:i + length]\n            if substring == substring[::-1] and len(substring) > len(largest_pal):\n                largest_pal = substring\n    return largest_pal\nlargest_palindrome('babad')",
+        "Output": "def largest_palindrome(s):\n    # Initialize the largest palindrome as an empty string\n    largest_pal = ''\n    # Iterate through the string and check for palindromes of different lengths\n    for length in range(len(s), 0, -1):\n        for i in range(len(s) - length + 1):\n            substring = s[i:i + length]\n            if substring == substring[::-1] and len(substring) > len(largest_pal):\n                largest_pal = substring\n    return largest_pal"
+    },
+    {
+        "Instruction": "Write a function that takes a string as input and returns the string with all the vowels removed.",
+        "Input": "def remove_vowels(s):\n    # Try to remove vowels from the string\n    return s.replace('a', '').replace('e', '').replace('i', '').replace('o', '').replace('u', '')\n\n# Test the function\nprint(remove_vowels('hello'))",
+        "Output": "def remove_vowels(s):\n    # Use a list comprehension to filter out vowels\n    return ''.join([c for c in s if c.lower() not in 'aeiou'])\n\n# Test the function\nprint(remove_vowels('hello'))"
+    },
+    {
+        "Instruction": "Write a function that takes a list of integers as input and returns the sum of all the positive numbers in the list.",
+        "Input": "def sum_positive_numbers(lst):\n    # Try to sum up positive numbers\n    sum = 0\n    for num in lst:\n        if num > 0:\n            sum += num\n    return sum\n\n# Test the function\nprint(sum_positive_numbers([1, -2, 3, -4, 5]))",
+        "Output": "def sum_positive_numbers(lst):\n    # Use a generator expression to sum up positive numbers\n    return sum(num for num in lst if num > 0)\n\n# Test the function\nprint(sum_positive_numbers([1, -2, 3, -4, 5]))"
+    },
+    {
+        "Instruction": "Write a function that takes a string as input and returns the string with all the words reversed.",
+        "Input": "def reverse_words(s):\n    # Try to reverse each word in the string\n    words = s.split(' ')\n    for i in range(len(words)):\n        words[i] = words[i][::-1]\n    return ' '.join(words)\n\n# Test the function\nprint(reverse_words('hello world'))",
+        "Output": "def reverse_words(s):\n    # Use a list comprehension to reverse each word\n    return ' '.join([word[::-1] for word in s.split(' ')])\n\n# Test the function\nprint(reverse_words('hello world'))"
+    },
+    {
+        "Instruction": "Write a function that takes a dictionary as input and returns the dictionary with all the values multiplied by 2.",
+        "Input": "def double_values(d):\n    # Try to double each value in the dictionary\n    for key in d:\n        d[key] *= 2\n    return d\n\n# Test the function\nprint(double_values({'a': 1, 'b': 2, 'c': 3}))",
+        "Output": "def double_values(d):\n    # Use a dictionary comprehension to double each value\n    return {key: value * 2 for key, value in d.items()}\n\n# Test the function\nprint(double_values({'a': 1, 'b': 2, 'c': 3}))"
+    },
+    {
+        "Instruction": "Write a function that takes a list of integers as input and returns the list with all the duplicates removed.",
+        "Input": "def remove_duplicates(lst):\n    # Try to remove duplicates from the list\n    new_lst = []\n    for num in lst:\n        if num not in new_lst:\n            new_lst.append(num)\n    return new_lst\n\n# Test the function\nprint(remove_duplicates([1, 2, 2, 3, 4, 4, 5]))",
+        "Output": "def remove_duplicates(lst):\n    # Use a set to remove duplicates\n    return list(set(lst))\n\n# Test the function\nprint(remove_duplicates([1, 2, 2, 3, 4, 4, 5]))"
+    },
+    {
+        "Instruction": "Write a function that takes a string as input and returns the string with all the characters in reverse order.",
+        "Input": "def reverse_string(s):\n    # Try to reverse the string\n    return s[::-1]\n\n# Test the function\nprint(reverse_string('hello'))",
+        "Output": "def reverse_string(s):\n    # Use slicing to reverse the string\n    return s[::-1]\n\n# Test the function\nprint(reverse_string('hello'))"
+    },
+    {
+        "Instruction": "Write a function that takes a list of integers as input and returns the list with all the numbers greater than 10 removed.",
+        "Input": "def remove_large_numbers(lst):\n    # Try to remove numbers greater than 10\n    new_lst = []\n    for num in lst:\n        if num <= 10:\n            new_lst.append(num)\n    return new_lst\n\n# Test the function\nprint(remove_large_numbers([1, 2, 3, 11, 12, 13]))",
+        "Output": "def remove_large_numbers(lst):\n    # Use a list comprehension to filter out numbers greater than 10\n    return [num for num in lst if num <= 10]\n\n# Test the function\nprint(remove_large_numbers([1, 2, 3, 11, 12, 13]))"
+    },
+    {
+        "Instruction": "Write a function that takes a dictionary as input and returns the dictionary with all the keys changed to uppercase.",
+        "Input": "def uppercase_keys(d):\n    # Try to change keys to uppercase\n    new_d = {}\n    for key in d:\n        new_d[key.upper()] = d[key]\n    return new_d\n\n# Test the function\nprint(uppercase_keys({'a': 1, 'b': 2, 'c': 3}))",
+        "Output": "def uppercase_keys(d):\n    # Use a dictionary comprehension to change keys to uppercase\n    return {key.upper(): value for key, value in d.items()}\n\n# Test the function\nprint(uppercase_keys({'a': 1, 'b': 2, 'c': 3}))"
+    },
+    {
+        "Instruction": "Write a function that takes a list of integers as input and returns the list with all the numbers squared.",
+        "Input": "def square_numbers(lst):\n    # Try to square each number\n    new_lst = []\n    for num in lst:\n        new_lst.append(num ** 2)\n    return new_lst\n\n# Test the function\nprint(square_numbers([1, 2, 3, 4, 5]))",
+        "Output": "def square_numbers(lst):\n    # Use a list comprehension to square each number\n    return [num ** 2 for num in lst]\n\n# Test the function\nprint(square_numbers([1, 2, 3, 4, 5]))"
+    },
+    {
+        "Instruction": "Write a function that takes a string as input and returns the string with all the characters in alphabetical order.",
+        "Input": "def sort_string(s):\n    # Try to sort the string\n    return ''.join(sorted(s))\n\n# Test the function\nprint(sort_string('hello'))",
+        "Output": "def sort_string(s):\n    # Use the sorted function to sort the string\n    return ''.join(sorted(s))\n\n# Test the function\nprint(sort_string('hello'))"
+    },
+    {
+        "Instruction": "Write a function that takes a list of integers as input and returns the list with all the numbers incremented by 1.",
+        "Input": "def increment_numbers(lst):\n    # Try to increment each number\n    new_lst = []\n    for num in lst:\n        new_lst.append(num + 1)\n    return new_lst\n\n# Test the function\nprint(increment_numbers([1, 2, 3, 4, 5]))",
+        "Output": "def increment_numbers(lst):\n    # Use a list comprehension to increment each number\n    return [num + 1 for num in lst]\n\n# Test the function\nprint(increment_numbers([1, 2, 3, 4, 5]))"
+    },
+    {
+        "Instruction": "Write a function that takes a string and returns the longest substring without repeating characters.",
+        "Input": "def longest_substring(s):\n    max_length = 0\n    start = 0\n    char_set = set()\n    for end in range(len(s)):\n        while s[end] in char_set:\n            char_set.remove(s[start])\n            start += 1\n        char_set.add(s[end])\n        max_length = max(max_length, end - start + 1)\n    return max_length",
+        "Output": "def longest_substring(s):\n    max_length = 0\n    start = 0\n    char_set = set()\n    for end in range(len(s)):\n        while s[end] in char_set:\n            char_set.remove(s[start])\n            start += 1\n        char_set.add(s[end])\n        max_length = max(max_length, end - start + 1)\n    return max_length"
+    },
+    {
+        "Instruction": "Given a list of integers, return the first duplicate in the list, or None if no duplicates exist.",
+        "Input": "def first_duplicate(nums):\n    seen = set()\n    for num in nums:\n        if num in seen:\n            return num\n        seen.add(num)\n    return None",
+        "Output": "def first_duplicate(nums):\n    seen = set()\n    for num in nums:\n        if num in seen:\n            return num\n        seen.add(num)\n    return None"
+    },
+    {
+        "Instruction": "Write a function that takes a string and returns the number of vowels in the string.",
+        "Input": "def count_vowels(s):\n    return len([c for c in s if c in 'aeiou'])",
+        "Output": "def count_vowels(s):\n    return sum(1 for c in s if c in 'aeiou')"
+    },
+    {
+        "Instruction": "Given a list of strings, return the longest string in the list.",
+        "Input": "def longest_string(strings):\n    return max(strings, key=len)",
+        "Output": "def longest_string(strings):\n    return max(strings, key=len)"
+    },
+    {
+        "Instruction": "Write a function that takes a list of integers and returns the sum of the squares of the even numbers in the list.",
+        "Input": "def sum_of_squares(even_nums):\n    return sum(num ** 2 for num in even_nums if num % 2 == 0)",
+        "Output": "def sum_of_squares(even_nums):\n    return sum(num ** 2 for num in even_nums if num % 2 == 0)"
+    },
+    {
+        "Instruction": "Given a list of numbers, return the average of the numbers in the list.",
+        "Input": "def average(numbers):\n    return sum(numbers) / len(numbers)",
+        "Output": "def average(numbers):\n    return sum(numbers) / len(numbers)"
+    },
+    {
+        "Instruction": "Write a function that takes a string and returns the string with all vowels removed.",
+        "Input": "def remove_vowels(s):\n    return s.replace('a', '').replace('e', '').replace('i', '').replace('o', '').replace('u', '')",
+        "Output": "def remove_vowels(s):\n    return ''.join(c for c in s if c not in 'aeiou')"
+    },
+    {
+        "Instruction": "Given a list of strings, return the strings that are palindromes.",
+        "Input": "def palindromes(strings):\n    return [s for s in strings if s == s[::-1]]",
+        "Output": "def palindromes(strings):\n    return [s for s in strings if s == s[::-1]]"
+    },
+    {
+        "Instruction": "Write a function that takes a string and returns the string with all duplicates removed.",
+        "Input": "def remove_duplicates(s):\n    return ''.join(c for c in set(s))",
+        "Output": "def remove_duplicates(s):\n    return ''.join(c for c in set(s))"
+    },
+    {
+        "Instruction": "Given a list of numbers, return the numbers in the list in reverse order.",
+        "Input": "def reverse_numbers(numbers):\n    return numbers[::-1]",
+        "Output": "def reverse_numbers(numbers):\n    return numbers[::-1]"
+    },
+    {
+        "Instruction": "Write a function that takes a list of integers as input and returns the sum of all even numbers in the list.",
+        "Input": "def sum_even_numbers(lst):\n    sum = 0\n    for num in lst:\n        if num % 2 == 0:\n            sum += num\n    return sum\n",
+        "Output": "def sum_even_numbers(lst):\n    return sum(num for num in lst if num % 2 == 0)\n"
+    },
+    {
+        "Instruction": "Write a function that takes a string as input and returns the string with all vowels removed.",
+        "Input": "def remove_vowels(s):\n    vowels = 'aeiouAEIOU'\n    new_s = ''\n    for char in s:\n        if char not in vowels:\n            new_s += char\n    return new_s\n",
+        "Output": "def remove_vowels(s):\n    return ''.join([char for char in s if char not in 'aeiouAEIOU'])\n"
+    },
+    {
+        "Instruction": "Write a function that takes a list of strings as input and returns the longest string in the list.",
+        "Input": "def longest_string(lst):\n    longest = ''\n    for s in lst:\n        if len(s) > len(longest):\n            longest = s\n    return longest\n",
+        "Output": "def longest_string(lst):\n    return max(lst, key=len)\n"
+    },
+    {
+        "Instruction": "Write a function that takes a dictionary as input and returns a dictionary with the same keys but with all values multiplied by 2.",
+        "Input": "def double_values(d):\n    new_d = {}\n    for key, value in d.items():\n        new_d[key] = value * 2\n    return new_d\n",
+        "Output": "def double_values(d):\n    return {key: value * 2 for key, value in d.items()}\n"
+    },
+    {
+        "Instruction": "Write a function that takes a list of numbers as input and returns the average of the numbers.",
+        "Input": "def average(lst):\n    sum = 0\n    for num in lst:\n        sum += num\n    return sum / len(lst)\n",
+        "Output": "def average(lst):\n    return sum(lst) / len(lst)\n"
+    },
+    {
+        "Instruction": "Write a function that takes a string as input and returns the string with all characters in reverse order.",
+        "Input": "def reverse_string(s):\n    new_s = ''\n    for i in range(len(s) - 1, -1, -1):\n        new_s += s[i]\n    return new_s\n",
+        "Output": "def reverse_string(s):\n    return s[::-1]\n"
+    },
+    {
+        "Instruction": "Write a function that takes a list of numbers as input and returns the maximum number in the list.",
+        "Input": "def max_number(lst):\n    max_num = lst[0]\n    for num in lst:\n        if num > max_num:\n            max_num = num\n    return max_num\n",
+        "Output": "def max_number(lst):\n    return max(lst)\n"
+    },
+    {
+        "Instruction": "Write a function that takes a dictionary as input and returns a dictionary with the same keys but with all values incremented by 1.",
+        "Input": "def increment_values(d):\n    new_d = {}\n    for key, value in d.items():\n        new_d[key] = value + 1\n    return new_d\n",
+        "Output": "def increment_values(d):\n    return {key: value + 1 for key, value in d.items()}\n"
+    },
+    {
+        "Instruction": "Write a function that takes a list of strings as input and returns a list of strings with all strings converted to uppercase.",
+        "Input": "def to_uppercase(lst):\n    new_lst = []\n    for s in lst:\n        new_lst.append(s.upper())\n    return new_lst\n",
+        "Output": "def to_uppercase(lst):\n    return [s.upper() for s in lst]\n"
+    },
+    {
+        "Instruction": "Write a function that takes a list of numbers as input and returns the minimum number in the list.",
+        "Input": "def min_number(lst):\n    min_num = lst[0]\n    for num in lst:\n        if num < min_num:\n            min_num = num\n    return min_num\n",
+        "Output": "def min_number(lst):\n    return min(lst)\n"
+    },
+    {
+        "Instruction": "Write a function to check if a string contains all unique characters.",
+        "Input": "def has_unique_chars(s):\n    return len(s) == len(set(s))\nhas_unique_chars('abcde')",
+        "Output": "def has_unique_chars(s):\n    # Convert the string to a set to remove duplicates\n    unique_chars = set(s)\n    # Check if the length of the set is equal to the length of the string\n    return len(unique_chars) == len(s)\nhas_unique_chars('abcde')"
+    },
+    {
+        "Instruction": "Given a list of integers, write a function to find the maximum sum of a contiguous subarray.",
+        "Input": "def max_subarray_sum(nums):\n    max_sum = float('-inf')\n    current_sum = 0\n    for num in nums:\n        current_sum += num\n        max_sum = max(max_sum, current_sum)\n        if current_sum < 0:\n            current_sum = 0\n    return max_sum\nmax_subarray_sum([1, -2, 3, -2, 5])",
+        "Output": "def max_subarray_sum(nums):\n    # Initialize the maximum sum and the current sum to negative infinity and 0 respectively\n    max_sum = float('-inf')\n    current_sum = 0\n    # Iterate over the list of numbers\n    for num in nums:\n        # Add the current number to the current sum\n        current_sum += num\n        # Update the maximum sum if the current sum is greater\n        if current_sum > max_sum:\n            max_sum = current_sum\n        # Reset the current sum if it becomes negative\n        if current_sum < 0:\n            current_sum = 0\n    # Return the maximum sum\n    return max_sum\nmax_subarray_sum([1, -2, 3, -2, 5])"
+    },
+    {
+        "Instruction": "Write a function to check if a number is a power of two.",
+        "Input": "def is_power_of_two(n):\n    return n > 0 and bin(n).count('1') == 1\nis_power_of_two(8)",
+        "Output": "def is_power_of_two(n):\n    # Check if the number is greater than 0\n    if n <= 0:\n        return False\n    # Convert the number to binary and count the number of 1's\n    return bin(n).count('1') == 1\nis_power_of_two(8)"
+    },
+    {
+        "Instruction": "Given a list of strings, write a function to find the longest common prefix among all strings.",
+        "Input": "def longest_common_prefix(strs):\n    if not strs:\n        return ''\n    prefix = min(strs, key=len)\n    for i, char in enumerate(prefix):\n        for other in strs:\n            if other[i] != char:\n                return prefix[:i]\n    return prefix\nlongest_common_prefix(['flower','flow','flight'])",
+        "Output": "def longest_common_prefix(strs):\n    # Check if the list of strings is empty\n    if not strs:\n        return ''\n    # Find the shortest string in the list\n    prefix = min(strs, key=len)\n    # Iterate over the characters in the prefix\n    for i, char in enumerate(prefix):\n        # Check if the character is the same in all strings\n        for other in strs:\n            if other[i] != char:\n                # If a mismatch is found, return the prefix up to the mismatch\n                return prefix[:i]\n    # If no mismatches are found, return the entire prefix\n    return prefix\nlongest_common_prefix(['flower','flow','flight'])"
+    },
+    {
+        "Instruction": "Write a function to check if a binary tree is balanced.",
+        "Input": "def is_balanced(root):\n    if root is None:\n        return True\n    return abs(height(root.left) - height(root.right)) <= 1 and is_balanced(root.left) and is_balanced(root.right)\ndef height(node):\n    if node is None:\n        return 0\n    return 1 + max(height(node.left), height(node.right))",
+        "Output": "def is_balanced(root):\n    # Check if the tree is empty\n    if root is None:\n        return True\n    # Calculate the height of the left and right subtrees\n    left_height = height(root.left)\n    right_height = height(root.right)\n    # Check if the absolute difference between the heights is less than or equal to 1\n    and the left and right subtrees are balanced\n    return abs(left_height - right_height) <= 1 and is_balanced(root.left) and is_balanced(root.right)\ndef height(node):\n    # Check if the node is empty\n    if node is None:\n        return 0\n    # Calculate the height of the node by adding 1 to the maximum height of its subtrees\n    return 1 + max(height(node.left), height(node.right))\nis_balanced(root)"
+    },
+    {
+        "Instruction": "Given a list of integers, write a function to find the first duplicate in the list.",
+        "Input": "def first_duplicate(nums):\n    seen = set()\n    for num in nums:\n        if num in seen:\n            return num\n        seen.add(num)\n    return None\nfirst_duplicate([2, 1, 3, 5, 3, 2])",
+        "Output": "def first_duplicate(nums):\n    # Initialize an empty set to keep track of seen numbers\n    seen = set()\n    # Iterate over the list of numbers\n    for num in nums:\n        # Check if the number is in the set of seen numbers\n        if num in seen:\n            # If it is, return the number as it is the first duplicate\n            return num\n        # If not, add the number to the set of seen numbers\n        seen.add(num)\n    # If no duplicates are found, return None\n    return None\nfirst_duplicate([2, 1, 3, 5, 3, 2])"
+    },
+    {
+        "Instruction": "Write a function to check if a string is a palindrome.",
+        "Input": "def is_palindrome(s):\n    return s == s[::-1]\nis_palindrome('radar')",
+        "Output": "def is_palindrome(s):\n    # Check if the string is equal to its reverse\n    return s == s[::-1]\nis_palindrome('radar')"
+    },
+    {
+        "Instruction": "Given a list of integers, write a function to find the maximum sum of a subarray with a given size.",
+        "Input": "def max_subarray_sum(nums, size):\n    if size > len(nums):\n        return None\n    max_sum = float('-inf')\n    current_sum = sum(nums[:size])\n    max_sum = max(max_sum, current_sum)\n    for i in range(size, len(nums)):\n        current_sum = current_sum - nums[i-size] + nums[i]\n        max_sum = max(max_sum, current_sum)\n    return max_sum\nmax_subarray_sum([1, 2, 3, 4, 5], 3)",
+        "Output": "def max_subarray_sum(nums, size):\n    # Check if the size is greater than the length of the list\n    if size > len(nums):\n        return None\n    # Initialize the maximum sum and the current sum to negative infinity and the sum of the first size numbers respectively\n    max_sum = float('-inf')\n    current_sum = sum(nums[:size])\n    # Update the maximum sum if the current sum is greater\n    max_sum = max(max_sum, current_sum)\n    # Iterate over the list starting from the size-th number\n    for i in range(size, len(nums)):\n        # Update the current sum by subtracting the number at the size-th position and adding the number at the current position\n        current_sum = current_sum - nums[i-size] + nums[i]\n        # Update the maximum sum if the current sum is greater\n        max_sum = max(max_sum, current_sum)\n    # Return the maximum sum\n    return max_sum\nmax_subarray_sum([1, 2, 3, 4, 5], 3)"
+    },
+    {
+        "Instruction": "Write a function to check if a number is a prime number.",
+        "Input": "def is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\nis_prime(7)",
+        "Output": "def is_prime(n):\n    # Check if the number is less than or equal to 1\n    if n <= 1:\n        return False\n    # Iterate over the numbers from 2 to the square root of the number\n    for i in range(2, int(n ** 0.5) + 1):\n        # Check if the number is divisible by the current number\n        if n % i == 0:\n            # If it is, return False\n            return False\n    # If the number is not divisible by any number, return True\n    return True\nis_prime(7)"
+    },
+    {
+        "Instruction": "Given a list of strings, write a function to find the longest string in the list.",
+        "Input": "def longest_string(strs):\n    return max(strs, key=len)\nlongest_string(['hello', 'world', 'python'])",
+        "Output": "def longest_string(strs):\n    # Use the built-in max function with the key argument set to len to find the longest string\n    return max(strs, key=len)\nlongest_string(['hello', 'world', 'python'])"
+    }
+]
